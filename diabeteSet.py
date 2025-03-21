@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+#still working on it
 data = pd.read_csv('diabetes.csv')
 print("Missing values in each column:")
 print(data.isnull().sum())
