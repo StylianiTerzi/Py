@@ -3,15 +3,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 #still working on it
-data = pd.read_csv('diabetes.csv')
+dt=pd.read_csv('diabetes.csv')
 print("Missing values in each column:")
-print(data.isnull().sum())
+print(dt.isnull().sum())
+msdValue=dt.isnull().sum().sum()
+if msdValue > 0:
+    print("\nMissing values found in the dataset.")
+    plt.figure(figsize=(10, 6))
+    sns.heatmap(dt.isnull(), cbar=False, cmap='viridis')
+    plt.title("Missing Values Heatmap")
+    plt.show()
+else:
+    print("\nThere is no missing values found in the CSV file")
 print("\nDataset Info:")
-print(data.info())
+print(dt.info())
 plt.figure(figsize=(12, 8))
-correlation_matrix = data.corr().round(2)
+correlation_matrix = dt.corr().round(2)
 sns.heatmap(data=correlation_matrix, annot=True,cmap="YlGnBu")
-
-#sns.heatmap(data.isnull(), cbar=False, cmap='viridis')
-#plt.title("Missing Values Heatmap")
 plt.show()
