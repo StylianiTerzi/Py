@@ -1,0 +1,1 @@
+print("This is a default message")
